@@ -1,0 +1,2 @@
+# NeuroScan-scam-
+Project yes
