@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NeuroScan — AI-радиолог. Второе мнение для региональной медицины: сокращение времени на описание КТ и рентгена на 40%, до 95% скрытых патологий, соответствие ФЗ-152.">
+  <title>NeuroScan — AI-Радиолог: второе мнение для региональной медицины</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230066FF'/%3E%3Ctext x='50' y='70' font-size='62' font-family='Arial' font-weight='900' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo"><div class="logo-mark">N</div>NeuroScan</div>
+    <div class="segment-switch" id="segmentSwitch">
+      <button class="active" data-segment="state" type="button">Госбольницы</button>
+      <button data-segment="private" type="button">Частные клиники</button>
+    </div>
+    <button class="btn" id="headerCta" type="button">Получить демо</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span id="heroBadge">Для государственных учреждений</span>
+      </div>
+      <h1>Сократите время на описание снимков КТ и рентгена <span class="accent">на 40%</span></h1>
+      <p class="hero-sub" id="heroSub">Зарегистрированная медицинская нейросеть, которая находит до 95% скрытых патологий и формирует черновик заключения для врача-рентгенолога.</p>
+      <div class="hero-cta">
+        <button class="btn btn-lg" data-scroll-to-form type="button">Получить демо-доступ на 14 дней →</button>
+      </div>
+      <div class="hero-note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Требуется подтверждение статуса клиники
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b>94,8%</b><span>Чувствительность</span></div>
+        <div class="hero-stat"><b>92,1%</b><span>Специфичность</span></div>
+        <div class="hero-stat"><b>30 сек</b><span>Анализ снимка</span></div>
+      </div>
+    </div>
+
+    <div class="scanner">
+      <div class="scanner-layers">
+        <div class="scan-base">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="bgBase" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#1a2332"/>
+                <stop offset="100%" stop-color="#050810"/>
+              </radialGradient>
+              <radialGradient id="lungBase" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#0a0e18"/>
+                <stop offset="100%" stop-color="#000000"/>
+              </radialGradient>
+            </defs>
+            <rect width="400" height="400" fill="url(#bgBase)"/>
+            <ellipse cx="200" cy="380" rx="180" ry="80" fill="#0d1420"/>
+            <ellipse cx="140" cy="200" rx="70" ry="110" fill="url(#lungBase)" opacity=".9"/>
+            <ellipse cx="260" cy="200" rx="70" ry="110" fill="url(#lungBase)" opacity=".9"/>
+            <rect x="190" y="80" width="20" height="280" rx="10" fill="#2a3648" opacity=".6"/>
+            <g stroke="#3d4d66" stroke-width="3" fill="none" opacity=".7">
+              <path d="M 90 130 Q 200 110 310 130"/>
+              <path d="M 80 170 Q 200 150 320 170"/>
+              <path d="M 75 210 Q 200 190 325 210"/>
+              <path d="M 80 250 Q 200 230 320 250"/>
+              <path d="M 95 290 Q 200 270 305 290"/>
+            </g>
+            <path d="M 100 100 Q 200 85 300 100" stroke="#3d4d66" stroke-width="4" fill="none" opacity=".6"/>
+            <ellipse cx="230" cy="230" rx="45" ry="55" fill="#1a2230" opacity=".5"/>
+          </svg>
+        </div>
+
+        <div class="scan-overlay" id="scanOverlay">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="bgBase2" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#1a2332"/>
+                <stop offset="100%" stop-color="#050810"/>
+              </radialGradient>
+              <radialGradient id="lungBase2" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#0a0e18"/>
+                <stop offset="100%" stop-color="#000000"/>
+              </radialGradient>
+              <radialGradient id="hotspot" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#FF3B3B" stop-opacity=".9"/>
+                <stop offset="40%" stop-color="#FF3B3B" stop-opacity=".5"/>
+                <stop offset="100%" stop-color="#FF3B3B" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="hotspot2" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#FFA500" stop-opacity=".8"/>
+                <stop offset="100%" stop-color="#FFA500" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <rect width="400" height="400" fill="url(#bgBase2)"/>
+            <ellipse cx="200" cy="380" rx="180" ry="80" fill="#0d1420"/>
+            <ellipse cx="140" cy="200" rx="70" ry="110" fill="url(#lungBase2)" opacity=".9"/>
+            <ellipse cx="260" cy="200" rx="70" ry="110" fill="url(#lungBase2)" opacity=".9"/>
+            <rect x="190" y="80" width="20" height="280" rx="10" fill="#2a3648" opacity=".6"/>
+            <g stroke="#3d4d66" stroke-width="3" fill="none" opacity=".7">
+              <path d="M 90 130 Q 200 110 310 130"/>
+              <path d="M 80 170 Q 200 150 320 170"/>
+              <path d="M 75 210 Q 200 190 325 210"/>
+              <path d="M 80 250 Q 200 230 320 250"/>
+              <path d="M 95 290 Q 200 270 305 290"/>
+            </g>
+            <path d="M 100 100 Q 200 85 300 100" stroke="#3d4d66" stroke-width="4" fill="none" opacity=".6"/>
+            <ellipse cx="230" cy="230" rx="45" ry="55" fill="#1a2230" opacity=".5"/>
+            <circle cx="120" cy="160" r="40" fill="url(#hotspot)"/>
+            <circle cx="120" cy="160" r="18" fill="url(#hotspot2)" filter="url(#glow)"/>
+            <circle cx="120" cy="160" r="30" stroke="#00FF88" stroke-width="2" fill="none" filter="url(#glow)" stroke-dasharray="6 4"/>
+            <circle cx="270" cy="240" r="20" fill="url(#hotspot2)" opacity=".5"/>
+            <g stroke="#00FF88" stroke-width=".5" opacity=".15">
+              <line x1="0" y1="100" x2="400" y2="100"/>
+              <line x1="0" y1="200" x2="400" y2="200"/>
+              <line x1="0" y1="300" x2="400" y2="300"/>
+              <line x1="100" y1="0" x2="100" y2="400"/>
+              <line x1="200" y1="0" x2="200" y2="400"/>
+              <line x1="300" y1="0" x2="300" y2="400"/>
+            </g>
+            <g fill="#00FF88" font-family="monospace" font-size="10" font-weight="bold">
+              <text x="160" y="150">SUSPECT</text>
+              <text x="160" y="162">0.94</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="scan-divider" id="scanDivider"></div>
+        <div class="scan-handle" id="scanHandle">⇔</div>
+        <div class="scan-label scan-label-left">До</div>
+        <div class="scan-label scan-label-right">После</div>
+        <input type="range" min="0" max="100" value="50" id="scanSlider" aria-label="Сравнение снимка до и после обработки нейросетью">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Рентгенолог перегружен. Пациент ждёт. Клиника теряет деньги.</h2>
+    <p class="section-sub">NeuroScan берёт на себя первичный скрининг и оставляет врачу больше времени на сложные случаи.</p>
+    <div class="pain-grid">
+      <div class="pain-card bad">
+        <h3>❌ Без NeuroScan</h3>
+        <ul>
+          <li>Высокая нагрузка на врачей и «замыленный глаз»</li>
+          <li>Риск пропустить раннюю патологию в ночную смену</li>
+          <li>Очередь на расшифровку снимков — дни и недели</li>
+          <li>Низкая пропускная способность отделения</li>
+          <li>Потери выручки из-за задержек</li>
+        </ul>
+      </div>
+      <div class="pain-card good">
+        <h3>✅ С NeuroScan</h3>
+        <ul>
+          <li>Первичный скрининг за 15–30 секунд</li>
+          <li>Подсветка триггерных зон на снимке</li>
+          <li>Готовый черновик описания для врача</li>
+          <li>Рост пропускной способности до +35%</li>
+          <li>Снижение риска ошибки в 2,5 раза</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="container">
+    <h2 class="section-title">Как это работает</h2>
+    <p class="section-sub">Три шага — от снимка до готового черновика заключения. Врач утверждает решение.</p>
+    <div class="tabs" id="howTabs">
+      <button class="active" data-tab="1" type="button">1. Загрузка</button>
+      <button data-tab="2" type="button">2. Анализ</button>
+      <button data-tab="3" type="button">3. Результат</button>
+    </div>
+    <div class="tab-panel active" data-panel="1">
+      <div class="tab-number">1</div>
+      <div class="tab-content">
+        <h3>Снимок из PACS клиники</h3>
+        <p>Снимок автоматически и зашифровано отправляется из локальной PACS-системы в NeuroScan по защищённому каналу. Персональные данные пациента не передаются.</p>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="2">
+      <div class="tab-number">2</div>
+      <div class="tab-content">
+        <h3>Анализ нейросетью</h3>
+        <p>Нейросеть обрабатывает изображение, сверяясь с базой из 5 000 000+ верифицированных клинических случаев. Время анализа — до 30 секунд.</p>
+      </div>
+    </div>
+    <div class="tab-panel" data-panel="3">
+      <div class="tab-number">3</div>
+      <div class="tab-content">
+        <h3>Результат для врача</h3>
+        <p>Врач открывает снимок в привычном интерфейсе, видит тепловую карту вероятности патологий и готовый текст для протокола. Итоговое решение остаётся за врачом.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Точность, подтверждённая клиническими испытаниями</h2>
+    <p class="section-sub">Каждая цифра — результат валидации на верифицированных данных.</p>
+    <div class="trust-grid">
+      <div class="trust-stat"><b>94,8%</b><span>Чувствительность</span></div>
+      <div class="trust-stat"><b>92,1%</b><span>Специфичность</span></div>
+      <div class="trust-stat"><b>5M+</b><span>Клинических случаев</span></div>
+      <div class="trust-stat"><b>30 сек</b><span>На анализ</span></div>
+    </div>
+    <div class="security-list">
+      <div class="security-item"><div class="security-icon">🛡</div><div><b>ФЗ-152</b><span>Соответствие закону о персданных</span></div></div>
+      <div class="security-item"><div class="security-icon">🇷🇺</div><div><b>Серверы в РФ</b><span>Данные не покидают страну</span></div></div>
+      <div class="security-item"><div class="security-icon">🔒</div><div><b>Закрытый VPN-контур</b><span>Передача по защищённому каналу</span></div></div>
+      <div class="security-item"><div class="security-icon">📋</div><div><b>РУ Росздравнадзора</b><span>Регистрация как медизделие</span></div></div>
+      <div class="security-item"><div class="security-icon">👁</div><div><b>Журнал аудита</b><span>Полная история действий</span></div></div>
+      <div class="security-item"><div class="security-icon">🎭</div><div><b>Обезличивание</b><span>Работа с обезличенными данными</span></div></div>
+    </div>
+    <div class="disclaimer">
+      ⚠️ <b>Важно:</b> NeuroScan не ставит диагноз. Система формирует предварительное описание и подсвечивает зоны риска. Итоговое решение принимает врач.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="calc">
+      <div>
+        <h2>Сколько сэкономит ваша клиника?</h2>
+        <p>Введите показатели отделения — и мы посчитаем потенциальную экономию и срок окупаемости внедрения NeuroScan.</p>
+        <p class="calc-note">* Расчёт носит демонстрационный характер.</p>
+      </div>
+      <div class="calc-form">
+        <div class="calc-field">
+          <label for="calcScans">Снимков в месяц</label>
+          <input type="number" id="calcScans" value="1000" min="0" step="50">
+        </div>
+        <div class="calc-field">
+          <label for="calcTime">Среднее время описания (мин)</label>
+          <input type="number" id="calcTime" value="30" min="1" step="1">
+        </div>
+        <div class="calc-field">
+          <label for="calcCost">Стоимость часа врача (₽)</label>
+          <input type="number" id="calcCost" value="2500" min="0" step="100">
+        </div>
+        <div class="calc-result">
+          <div class="calc-result-label">Экономия в месяц</div>
+          <div class="calc-result-value" id="calcSavings">0 ₽</div>
+          <div class="calc-result-unit" id="calcHours">0 часов врачебного времени</div>
+          <div class="calc-result-divider"></div>
+          <div class="calc-result-row"><span>Экономия в год</span><span id="calcYearly">0 ₽</span></div>
+          <div class="calc-result-row"><span>Срок окупаемости</span><span id="calcPayback">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Клиники уже используют NeuroScan</h2>
+    <p class="section-sub">Пример внедрения в сети региональных диагностических центров.</p>
+    <div class="case-card">
+      <div class="case-tag">Пример кейса</div>
+      <p class="case-text">Внедрение NeuroScan позволило сократить время выдачи заключений по КТ лёгких с 40 до 18 минут. За 3 месяца система помогла выявить 12 ранних стадий онкологии, которые могли быть пропущены в ночную смену.</p>
+      <div class="case-author">
+        <div class="case-avatar">АК</div>
+        <div>
+          <b>Алексей Ковалёв</b>
+          <span>Заведующий отделением лучевой диагностики, сеть клиник «Пример»</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lead" id="leadSection">
+  <div class="container">
+    <div class="lead-card">
+      <div id="leadFormWrap">
+        <h2>Закажите персональную демонстрацию</h2>
+        <p>Покажем систему в действии и обсудим сценарий внедрения для вашей клиники.</p>
+        <form id="leadForm" novalidate>
+          <div class="form-group">
+            <label for="fio">Ваше имя *</label>
+            <input type="text" id="fio" placeholder="Иван Петров" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Телефон *</label>
+            <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="form-group">
+            <label for="clinic">Название клиники / Должность *</label>
+            <input type="text" id="clinic" placeholder="ГКБ №1, главный врач" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Корпоративный email *</label>
+            <input type="email" id="email" placeholder="i.petrov@clinic.ru" required>
+          </div>
+          <label class="consent">
+            <input type="checkbox" id="consent" required>
+            <span>Согласен на обработку персональных данных в соответствии с ФЗ-152</span>
+          </label>
+          <button type="submit" class="btn btn-lg">Посмотреть систему в действии</button>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">✓</div>
+        <h2>Заявка принята!</h2>
+        <p>Мы свяжемся с вами в течение рабочего дня и подтвердим статус клиники для демо-доступа.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="logo logo-sm"><div class="logo-mark logo-mark-sm">N</div>NeuroScan</div>
+    <div>© 2025 NeuroScan. Демонстрационный проект. Не является медицинским изделием в рамках данного прототипа.</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✓ Заявка успешно отправлена</div>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>
